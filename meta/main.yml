@@ -1,12 +1,12 @@
 galaxy_info:
-  role_name: docker_volume_backup
+  role_name: docker_volume_management
   author: luther38
-  description: Backup your docker volumes to a tarball.
+  description: Backup and restore your docker volumes 
   #company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
-  issue_tracker_url: http://github.com/luther38/docker_volume_backup/issues
+  issue_tracker_url: http://github.com/luther38/docker_volume_management/issues
 
   # Some suggested licenses:
   # - BSD (default)
