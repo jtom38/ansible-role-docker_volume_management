@@ -1,0 +1,7 @@
+---
+
+- name: Install docker cli
+  become: true
+  apt:
+    name: docker
+    state: present
