@@ -1,4 +1,4 @@
-- name: install docker cli
+- name: install docker cli - redhat
   yum:
     name: docker
     state: present

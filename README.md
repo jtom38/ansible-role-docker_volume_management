@@ -15,7 +15,7 @@ This role makes use of the docker cli tool on ansible_os_family == 'Debian' || '
 # Defines what task will be ran.
 # Expects: 'backup' or 'restore'
 # Defaults: Null
-action: string
+role_action: string
 
 # Defines what container to look for to copy the mount points for the backup job.
 # Defaults: Null
@@ -51,7 +51,7 @@ stop_container: bool
 - include_role:
     name: docker_volume_management
   vars:
-    action: backup
+    role_action: backup
     container_name: 'ubuntu'
     mount_point: '/data'
     backup_folder: '~/backup'
@@ -60,8 +60,11 @@ stop_container: bool
 - include_role:
     name: docker_volume_management
   vars:
-    action: restore
+    role_action: restore
     container_name: 'ubuntu'
+    stop_container: true
+    volume_name: ubuntuData
+    create_volume: true
     backup_folder: '~/backup'
     tar_file: ubuntuData.tar
 

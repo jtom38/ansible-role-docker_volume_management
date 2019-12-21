@@ -1,4 +1,5 @@
 - name: "{{ container_name }} backup {{ mount_point }}"
-  shell: docker run --rm --volumes-from {{ container_name }} -v {{ backup_folder }}:/backup ubuntu bash -c 'cd {{ mount_point }} && tar cvf /backup/{{ tar_file }} .'
+  shell: docker run --rm --volumes-from {{ container_name }} -v {{ backup_folder }}:/backup ubuntu bash -c 'cd "{{ mount_point }}" && tar cvf /backup/{{ tar_file }} .'
 
- 
+#- name: "Make backup container"
+#  shell: docker start --name backupContainer -v {{ backup_folder }}:/backup ubuntu 

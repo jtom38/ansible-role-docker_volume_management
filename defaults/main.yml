@@ -2,15 +2,19 @@
 
 # Required vars
 ## T
-action: ''
+role_action: ''
 
-# This will import all the 
+# This will import all the known mounts on the container defined
 container_name: ''
 
 # required
 mount_point: ''
 backup_folder: ''
-tar_file: ' '
+tar_file: ''
+
+# Defines the volume that will be created, if asked.
+# Defines where data will be restored to.
+volume_name: ''
 
 # optional
 create_volume: false

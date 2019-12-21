@@ -1,6 +1,6 @@
-- name: Make new volume - {{ container_name }}
+- name: Make new volume - {{ volume_name }}
   docker_volume:
-    name: "{{ container_name }}"
+    name: "{{ volume_name }}"
     state: present
   when: create_volume == true
 
@@ -10,5 +10,5 @@
   when: stop_container == true
 
 - name: restore data from tar
-  shell: docker run --rm -v {{ container_name }}:/recover -v {{ backup_folder }}:/backup ubuntu bash -c 'cd /recover && tar xvf /backup/{{ tar_file }}'
+  shell: docker run --rm -v {{ volume_name }}:/recover -v {{ backup_folder }}:/backup ubuntu bash -c 'cd "/recover/{{ recovery_folder }}" && tar xvf /backup/{{ tar_file }}'
 

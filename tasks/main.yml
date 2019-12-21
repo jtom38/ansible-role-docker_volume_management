@@ -1,17 +1,26 @@
 
 
-- import_tasks: ubuntu.yml
+- name: Debian - Install docker CLI
+  apt:
+    name: docker
+    state: present
   when: ansible_os_family == 'Debian'
 
-- import_tasks: rhel.yml
+- name: Redhat - Install docker CLI
+  yum:
+    name: docker
+    state: present
   when: ansible_os_family == 'RedHat'
 
+- name: OSX - Install docker CLI
+  homebrew:
+    name: docker
+    state: present
+  when: ansible_os_family == 'darwin'
+
 - import_tasks: backup.yml
-  when: action == 'backup'
+  when: role_action == 'backup'
 
 - import_tasks: restore.yml
-  when: action == 'restore'
-
-#- name: "{{ container_name }} - stop container"
-#  shell: "docker container stop {{ container_name }}"
+  when: role_action == 'restore'
 
